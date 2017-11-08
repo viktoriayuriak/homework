@@ -1,7 +1,12 @@
 import sys
 import argparse
 from sys import exit
-print ("This is the name of the script: ", sys.argv[0])
+from sys import argv
+
+script= argv
+prompt = '> '
+
+print ("This is the name of the script: ", script) 
 print('============================================================')
 print('                  MONKEY AND BANANA GAME!                   ')
 print('============================================================')
@@ -21,6 +26,18 @@ door = int(input('Please enter a choice '))
 print('\n')
 #door = raw_input('>>> ')
 
+def door_selection():
+	print('There is no any bananas, sorry')
+	print('\n')
+	exit_choice = int(input('Does Monkey want to exit? YES - press #1, NO - press #2 '))
+	if exit_choice == 1:
+		return exit()
+
+	if exit_choice == 2:
+		#choice == 2
+		return 'This is right Monkey decision!!!'
+        #door == 2
+
 if door == 1:
     print ('This is dark empty room. Monkey should choose another door!')
     print ('What do Monkey want to do?')
@@ -32,16 +49,7 @@ this room and choose another door""")
     choice = int(input('Please enter Monkey choice to select door '))
 
     if choice == 1:
-        print('There is no any bananas, sorry')
-        print('\n')
-        exit_choice = int(input('Does Monkey want to exit? YES - press #1, NO - press #2 '))
-        if exit_choice == 1:
-        	exit()
-        
-        if exit_choice == 2:
-        	choice == 2
-        	print('This is right Monkey decision!!!')
-        	door == 2
+        door_selection()
         
     if choice == 2:
         print('This is right Monkey decision')
@@ -81,7 +89,33 @@ in the corner of the room there is a chair""")
 		move_directions = ['left', 'right', 'forward', 'back']
 		direction_choice = input('Please select Monkey direction ')
 		print('\n')
-   
+
+		#WHEN MONKEY COOSE RIGHT DIRECTION
+		def right_direction():
+			print('Monkey can see a chair and bananas!!!')
+			print('This is correct direction keep moving forward until monkey find a chair')
+			print('\n')
+			print('Is Monkey found a chair??')
+
+			chair_found = input('Type #yes or #no ')
+
+			while chair_found == 'yes':
+				print('Monkey found it! But also Monkey see a bananas!!!')
+				print('She wants to take bananas, but cannot reach it when she is jumping ')
+				print('Monkey can stand on a chair and try to reach bananas')
+				print('\n')
+
+				choice_stand = input('Do you want Monkey do this? (yes/no)?')
+
+				while choice_stand == 'yes':
+					return """Monkey is trying to stand on a chair' \n
+					 Monkey can reach a bananas. YOU ARE WINNER!!!"""
+					exit()
+
+				while choice_stand == 'no':
+					return """Monkey will never reach those bananas, GAME OVER!'
+				Monkey is blind, Maybe? :-)))"""
+
 
 		if direction_choice == move_directions[0]:
 			print("From the left side no chair found, Monkey should select another direction")
@@ -93,31 +127,7 @@ in the corner of the room there is a chair""")
 				print('GAME OVER')
 
 			if (direction_choice_again == move_directions[2]):
-				print('Monkey can see a chair and bananas!!!')
-				print('This is correct direction keep moving forward until monkey find a chair')
-				print('\n')
-				print('Is Monkey found a chair??')
-
-				chair_found = input('Type #yes or #no ')
-
-				while chair_found == 'yes':
-					print('Monkey found it! But also Monkey see a bananas!!!')
-					print('She wants to take bananas, but cannot reach it when she is jumping ')
-					print('Monkey can stand on a chair and try to reach bananas')
-					print('\n')
-
-					choice_stand = input('Do you want Monkey do this? (yes/no)?')
-
-					while choice_stand == 'yes':
-						print('Monkey is trying to stand on a chair')
-						print('\n')
-						print('Monkey can reach a bananas. YOU ARE WINNER!!!')
-						exit()
-
-					while choice_stand == 'no':
-						print('Monkey will never reach those bananas, GAME OVER!')
-
-				print('Monkey is blind, Maybe? :-)))')
+				right_direction()
 
 			if (direction_choice_again == move_directions[3]):
 				print('From the back side no any bananas')
@@ -134,60 +144,11 @@ in the corner of the room there is a chair""")
 				print('GAME OVER')
 
 			if (direction_choice_again == move_directions[2]):
-				print('Monkey can see a chair and bananas!!!')
-				print('This is correct direction keep moving forward until monkey find a chair')
-				print('\n')
-				print('Is Monkey found a chair??')
-
-				chair_found = input('Type #yes or #no ')
-
-				while chair_found == 'yes':
-					print('Monkey found it! But also Monkey see a bananas!!!')
-					print('She wants to take bananas, but cannot reach it when she is jumping ')
-					print('Monkey can stand on a chair and try to reach bananas')
-					print('\n')
-
-					choice_stand = input('Do you want Monkey do this? (yes/no)?')
-
-					while choice_stand == 'yes':
-						print('Monkey is trying to stand on a chair')
-						print('\n')
-						print('Monkey can reach a bananas. YOU ARE WINNER!!!')
-						exit()
-
-					while choice_stand == 'no':
-						print('Monkey will never reach those bananas, GAME OVER!')
-
-				print('Monkey is blind, Maybe? :-)))')
-				print('GAME OVER')
+				right_direction()
 
 
 		elif direction_choice == move_directions[2]:
-			print('This is correct direction keep moving forward until monkey find a chair')
-			print('\n')
-
-			print('Is Monkey found a chair??')
-
-			chair_found = input('Type #yes or #no ')
-
-			while chair_found == 'yes':
-				print('Monkey found it! But also Monkey see a bananas!!!')
-				print('She wants to take bananas, but cannot reach it when she is jumping ')
-				print('Monkey can stand on a chair and try to reach bananas')
-				print('\n')
-
-				choice_stand = input('Do you want Monkey do this? (yes/no)?')
-
-				while choice_stand == 'yes':
-					print('Monkey is trying to stand on a chair')
-					print('\n')
-					print('Monkey can reach a bananas. YOU ARE WINNER!!!')
-					exit()
-				while choice_stand == 'no':
-					print('Monkey will never reach those bananas, GAME OVER!')
-
-			print('Monkey is blind, Maybe? :-)))')
-    	
+			right_direction()
 
 		elif direction_choice == move_directions[3]:
 			print("From the back side no chair found, please select another direction")
@@ -199,31 +160,7 @@ in the corner of the room there is a chair""")
 				print('GAME OVER')
 
 			if (direction_choice_again == move_directions[2]):
-				print('Monkey can see a chair and bananas!!!')
-				print('This is correct direction keep moving forward until monkey find a chair')
-				print('\n')
-				print('Is Monkey found a chair??')
-
-				chair_found = input('Type #yes or #no ')
-
-				while chair_found == 'yes':
-					print('Monkey found it! But also Monkey see a bananas!!!')
-					print('She wants to take bananas, but cannot reach it when she is jumping ')
-					print('Monkey can stand on a chair and try to reach bananas')
-					print('\n')
-
-					choice_stand = input('Do you want Monkey do this? (yes/no)?')
-
-					while choice_stand == 'yes':
-						print('Monkey is trying to stand on a chair')
-						print('\n')
-						print('Monkey can reach a bananas. YOU ARE WINNER!!!')
-						exit()
-
-					while choice_stand == 'no':
-						print('Monkey will never reach those bananas, GAME OVER!')
-
-				print('Monkey is blind, Maybe? :-)))')
+				right_direction()
 
 			if (direction_choice_again == move_directions[1]):
 				print('From the right no any chair and bananas')
