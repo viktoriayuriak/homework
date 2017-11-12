@@ -1,15 +1,19 @@
+
 import sys
 import argparse
+
 from sys import exit
 from sys import argv
 
 script= argv
 prompt = '> '
 
+
 print ("This is the name of the script: ", script) 
 print('============================================================')
 print('                  MONKEY AND BANANA GAME!                   ')
 print('============================================================')
+
 
 parser = argparse.ArgumentParser(description = 'This is text game Monkey and bananas')
 #print(description)
@@ -26,6 +30,7 @@ door = int(input('Please enter a choice '))
 print('\n')
 #door = raw_input('>>> ')
 
+#function to choose a door, left or right
 def door_selection():
 	print('There is no any bananas, sorry')
 	print('\n')
@@ -38,6 +43,8 @@ def door_selection():
 		return 'This is right Monkey decision!!!'
         #door == 2
 
+
+#Monkey selected door from the left side
 if door == 1:
     print ('This is dark empty room. Monkey should choose another door!')
     print ('What do Monkey want to do?')
@@ -80,22 +87,27 @@ in the corner of the room there is a chair""")
 	if move_choice == 1:
 		print('Monkey have a chance to reach it')
 		print('\n')
+
 		print("""#left - Move left
 #right - Move right
 #forward - Move forward
 #back - Move back""")
+
 		print('\n')
 
+		#Monkey should select a direction to move
 		move_directions = ['left', 'right', 'forward', 'back']
 		direction_choice = input('Please select Monkey direction ')
 		print('\n')
 
-		#WHEN MONKEY COOSE RIGHT DIRECTION
+
+		#WHEN MONKEY MAKE correct DIRECTION (forward)
 		def right_direction():
 			print('Monkey can see a chair and bananas!!!')
 			print('This is correct direction keep moving forward until monkey find a chair')
 			print('\n')
 			print('Is Monkey found a chair??')
+
 
 			chair_found = input('Type #yes or #no ')
 
@@ -105,6 +117,7 @@ in the corner of the room there is a chair""")
 				print('Monkey can stand on a chair and try to reach bananas')
 				print('\n')
 
+
 				choice_stand = input('Do you want Monkey do this? (yes/no)?')
 
 				while choice_stand == 'yes':
@@ -112,9 +125,11 @@ in the corner of the room there is a chair""")
 					 Monkey can reach a bananas. YOU ARE WINNER!!!"""
 					exit()
 
+
 				while choice_stand == 'no':
 					return """Monkey will never reach those bananas, GAME OVER!'
 				Monkey is blind, Maybe? :-)))"""
+
 
 
 		if direction_choice == move_directions[0]:
@@ -129,14 +144,17 @@ in the corner of the room there is a chair""")
 			if (direction_choice_again == move_directions[2]):
 				right_direction()
 
+
 			if (direction_choice_again == move_directions[3]):
 				print('From the back side no any bananas')
 				print('GAME OVER')
 
 
+
 		elif direction_choice == move_directions[1]:
 			print("From the right side no chair found, Monkey should select another direction")
 			print('\n')
+
 
 			direction_choice_again = input('Please Monkey should select another direction, except of RIGHT ')
 			if (direction_choice_again == move_directions[0]):
@@ -150,9 +168,11 @@ in the corner of the room there is a chair""")
 		elif direction_choice == move_directions[2]:
 			right_direction()
 
+
 		elif direction_choice == move_directions[3]:
 			print("From the back side no chair found, please select another direction")
 			print('\n')
+
 
 			direction_choice_again = input('Please Monkey should select another direction, except of BACK ')
 			if (direction_choice_again == move_directions[0]):
@@ -166,6 +186,8 @@ in the corner of the room there is a chair""")
 				print('From the right no any chair and bananas')
 				print('GAME OVER')
 
+
+#when Monkey selected another room
 elif room_choice == 2:
 		print('this is empty room, Monkey should try select another door')
 		wrong_choice = int(input('press #1 and Monkey can start from the very beginning '))
