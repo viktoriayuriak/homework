@@ -119,17 +119,17 @@ in the corner of the room there is a chair""")
 				print('\n')
 
 
-				choice_stand = input('Do you want Monkey do this? (yes/no)?')
+				choice_stand = input('Do you want Monkey do this? (yes/no)? ')
 
-				while choice_stand == 'yes':
-					return """Monkey is trying to stand on a chair' \n
-					 Monkey can reach a bananas. YOU ARE WINNER!!!"""
+				if choice_stand == 'yes':
+					print ( """Monkey is trying to stand on a chair' \n
+					 Monkey can reach a bananas. YOU ARE WINNER!!!""")
 					exit()
 
 
-				while choice_stand == 'no':
-					return """Monkey will never reach those bananas, GAME OVER!'
-				Monkey is blind, Maybe? :-)))"""
+				if choice_stand == 'no':
+					print( """Monkey will never reach those bananas, GAME OVER!'
+				Monkey is blind, Maybe? :-)))""")
 
 
 
