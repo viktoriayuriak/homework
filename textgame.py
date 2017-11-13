@@ -1,6 +1,7 @@
 
 import sys
 import argparse
+import re
 
 from sys import exit
 from sys import argv
@@ -134,7 +135,7 @@ in the corner of the room there is a chair""")
 
 		if direction_choice == move_directions[0]:
 			print("From the left side no chair found, Monkey should select another direction")
-			print('\n')
+			print('\n') 
 
 			direction_choice_again = input('Please Monkey should select another direction, except of LEFT ')
 			if (direction_choice_again == move_directions[1]):
