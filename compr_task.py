@@ -80,7 +80,7 @@ def time_test(loops=10000, reps=3):
 
 def xrange(x):
 
-    return iter(range(x))
+    return iter(range(0, 1000000))
 
 def make_strings(n, r=0.5):
     print ('r:', r)
